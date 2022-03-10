@@ -8,12 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CUMN">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.CUMN.NoActionBar" />
+            android:name=".SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Lang"
+            android:exported="true" />
     </application>
 
 </manifest>
