@@ -16,9 +16,14 @@ private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lang);
-
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        System.out.println("Preferencias: ");
+        System.out.println(preferences.getInt("Lang", 0));
+        if(preferences.getInt("Lang", 0) == 0 || preferences.getInt("Lang", 0) == 1)
+            setContentView(R.layout.activity_main_menu);
+        else
+            setContentView(R.layout.activity_lang);
+
 
     }
     // Idioma 0: ESP
@@ -39,11 +44,19 @@ private SharedPreferences preferences;
         System.out.println("Preferencias: ");
         System.out.println(preferences.getInt("Lang", 0));
         changeActivity();
-
     }
 
     private void changeActivity() {
         Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
+    }
+
+    public void changeLang(View view) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("Lang", 2).apply();
+        System.out.println("Preferencias: ");
+        System.out.println(preferences.getInt("Lang", 0));
+        Intent intent = new Intent(this, Lang.class);
         startActivity(intent);
     }
 }

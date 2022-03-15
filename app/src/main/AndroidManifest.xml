@@ -10,11 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
     <activity
-            android:name=".MainMenu"
-            android:exported="false" />
-        <activity
-            android:name=".Lang"
-            android:exported="true" />
+        android:name=".MainMenu"
+        android:exported="true" />
+    <activity
+        android:name=".Lang"
+        android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+    </activity>
     </application>
 
 </manifest>
