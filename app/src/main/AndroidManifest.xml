@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CUMN">
-        <activity
+    <activity
             android:name=".MainMenu"
             android:exported="false" />
+        <activity
+            android:name=".Lang"
+            android:exported="true" />
     </application>
 
 </manifest>

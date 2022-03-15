@@ -44,7 +44,7 @@ private SharedPreferences preferences;
 
     //Aquí irá la actividad de la página de inicio :D
     private void changeActivity() {
-        Intent intent = new Intent(this, SecondActivity.class);
+        Intent intent = new Intent(this, MainMenu.class);
         startActivity(intent);
     }
 }
