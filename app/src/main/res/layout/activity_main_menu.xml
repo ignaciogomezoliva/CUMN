@@ -43,7 +43,9 @@
             android:layout_margin="8dp"
             android:backgroundTint="#0EC1B8"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:clickable="true"
+            android:onClick="setPrevNormal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -80,7 +82,9 @@
             android:layout_margin="8dp"
             android:backgroundTint="#0EC1B8"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:clickable="true"
+            android:onClick="setPrevCat">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -120,7 +124,9 @@
             android:layout_marginBottom="8dp"
             android:backgroundTint="#0EC1B8"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:clickable="true"
+            android:onClick="setPrevContr">
 
             <LinearLayout
                 android:layout_width="wrap_content"

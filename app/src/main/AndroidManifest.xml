@@ -9,17 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-    <activity
-        android:name=".MainMenu"
-        android:exported="true" />
-    <activity
-        android:name=".Lang"
-        android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
-    </activity>
+        <activity
+            android:name=".Normal"
+            android:exported="false" />
+        <activity
+            android:name=".Contrarreloj"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenu"
+            android:exported="false" />
+        <activity
+            android:name=".Difficulty"
+            android:exported="false" />
+        <activity
+            android:name=".Lang"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

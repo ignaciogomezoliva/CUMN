@@ -4,6 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    android:background="#025159"
+    tools:context=".Difficulty">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="412dp"
+        android:layout_height="193dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104"
+        app:srcCompat="@drawable/logo2" />
+
+    <Button
+        android:id="@+id/btn_easy"
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#0EC1B8"
+        android:text="Easy"
+        android:onClick="setDifficultyEasy"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_med"
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#0EC1B8"
+        android:text="Medium"
+        android:onClick="setDifficultyMed"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_easy"
+        app:layout_constraintVertical_bias="0.189" />
+
+    <Button
+        android:id="@+id/btn_hard"
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#0EC1B8"
+        android:text="hard"
+        android:onClick="setDifficultyHard"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_med"
+        app:layout_constraintVertical_bias="0.328" />
 </androidx.constraintlayout.widget.ConstraintLayout>
