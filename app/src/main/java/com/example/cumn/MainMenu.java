@@ -30,7 +30,7 @@ SharedPreferences preferences;
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Prev", "Categorias").apply();
         System.out.println("Previo: " + preferences.getString("Prev", ""));
-        Intent intent = new Intent(this, Difficulty.class);
+        Intent intent = new Intent(this, Categorias.class);
         startActivity(intent);
     }
 

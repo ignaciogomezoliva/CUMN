@@ -2,6 +2,7 @@ package com.example.cumn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ public class Categorias extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorias);
+
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
     }
 
     //0: entretenimiento
@@ -72,21 +75,12 @@ public class Categorias extends AppCompatActivity {
         changeActivity();
     }
 
-
-
-
-
-
-
     private void changeActivity() {
         String activity = preferences.getString("Prev", "");
         Intent intent = null;
-        if (activity.equals("Normal"))
-            intent = new Intent(this, Normal.class);
-        else if (activity.equals("Categorias"))
-            intent = new Intent(this, Categorias.class);
-        else
-            intent = new Intent(this, Contrarreloj.class);
+
+        intent = new Intent(this, Difficulty.class);
+
 
         startActivity(intent);
     }
