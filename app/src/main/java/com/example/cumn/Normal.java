@@ -16,6 +16,8 @@ import com.example.cumn.rest.ServiceAPi;
 import com.example.cumn.rest.models.Pregunta;
 import com.example.cumn.rest.models.Result;
 
+import org.jsoup.Jsoup;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -82,20 +84,21 @@ public class Normal extends AppCompatActivity {
                     List<String> randomList = new ArrayList<String>();
                     Random rnd = new Random();
 
-                    ((TextView)findViewById(R.id.Pregunta)).setText(respuestas.get(0).getQuestion());
+                    //Jsoup parse sustituye los simbolos raros ;)
+                    ((TextView)findViewById(R.id.Pregunta)).setText(Jsoup.parse(respuestas.get(0).getQuestion()).text());
 
-                    buena.add(respuestas.get(0).getCorrectAnswer());
+                    buena.add(Jsoup.parse(respuestas.get(0).getCorrectAnswer()).text());
 
                     randomList.addAll(incorrectas);
                     randomList.add(respuestas.get(0).getCorrectAnswer());
 
-                    ((Button)findViewById(R.id.respuesta1)).setText(randomList.remove(rnd.nextInt(randomList.size())));
+                    ((Button)findViewById(R.id.respuesta1)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    ((Button)findViewById(R.id.respuesta2)).setText(randomList.remove(rnd.nextInt(randomList.size())));
+                    ((Button)findViewById(R.id.respuesta2)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    ((Button)findViewById(R.id.respuesta3)).setText(randomList.remove(rnd.nextInt(randomList.size())));
+                    ((Button)findViewById(R.id.respuesta3)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    ((Button)findViewById(R.id.respuesta4)).setText(randomList.remove(rnd.nextInt(randomList.size())));
+                    ((Button)findViewById(R.id.respuesta4)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
                 }
 
