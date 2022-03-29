@@ -18,5 +18,11 @@
     <string name="easy">EASY</string>
     <string name="medium">MEDIUM</string>
     <string name="hard">HARD</string>
+    <string name="entertainment">ENTERTAINMENT</string>
+    <string name="science">SCIENCE</string>
+    <string name="sports">SPORTS</string>
+    <string name="geography">GEOGRAPHY</string>
+    <string name="history">HISTORY</string>
+    <string name="art">ART</string>
 
 </resources>

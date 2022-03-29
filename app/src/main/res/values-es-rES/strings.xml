@@ -10,4 +10,10 @@
     <string name="easy">FÁCIL</string>
     <string name="medium">MEDIO</string>
     <string name="hard">DIFÍCIL</string>
+    <string name="entertainment">ENTRETENIMIENTO</string>
+    <string name="science">CIENCIA</string>
+    <string name="sports">DEPORTES</string>
+    <string name="geography">GEOGRAFÍA</string>
+    <string name="history">HISTORIA</string>
+    <string name="art">ARTE</string>
 </resources>
