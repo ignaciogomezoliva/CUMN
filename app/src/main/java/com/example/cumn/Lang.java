@@ -15,7 +15,6 @@ import java.util.Locale;
 
 public class Lang extends AppCompatActivity {
 private SharedPreferences preferences;
-private MainMenu mainMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +22,13 @@ private MainMenu mainMenu;
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         System.out.println("Preferencias: ");
         System.out.println(preferences.getInt("Lang", 0));
-        if(preferences.getInt("Lang", 0) == 0 || preferences.getInt("Lang", 0) == 1)
+        if(preferences.getInt("Lang", 0) == 0 || preferences.getInt("Lang", 0) == 1) {
+            if (preferences.getInt("Lang", 0) == 0)
+                setLanguageForApp("es");
+            else
+                setLanguageForApp("en"); //Esto realmente no es necesario porque el idioma por defecto es el ingles, está por claridad
             changeActivity();
+        }
         else
             setContentView(R.layout.activity_lang);
     }
