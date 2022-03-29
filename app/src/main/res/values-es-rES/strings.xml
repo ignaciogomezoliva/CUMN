@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CUMN</string>
+    <string name="normal">NORMAL</string>
+    <string name="categories">CATEGORÍAS</string>
+    <string name="ranking">RANKING</string>
+    <string name="time_trial">CONTRARRELOJ</string>
+    <string name="next">siguiente</string>
+    <string name="previous">anterior</string>
+    <string name="easy">FÁCIL</string>
+    <string name="medium">MEDIO</string>
+    <string name="hard">DIFÍCIL</string>
+</resources>
