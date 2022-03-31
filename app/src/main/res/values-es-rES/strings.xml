@@ -16,4 +16,15 @@
     <string name="geography">GEOGRAFÍA</string>
     <string name="history">HISTORIA</string>
     <string name="art">ARTE</string>
+    <string name="pts">PUNTUACIÓN:</string>
+    <string name="start">INICIO</string>
+    <string name="correct_answer">RESPUESTA CORRECTA!</string>
+    <string name="incorrect_answer">RESPUESTA INCORRECTA! ERA:</string>
+    <string name="points1">TIENES: </string>
+    <string name="points2"> PUNTOS</string>
+    <string name="nextq">SIGUIENTE PREGUNTA</string>
+    <string name="goodr">LA RESPOUESTA CORRECTA ERA: </string>
+
+
+
 </resources>
