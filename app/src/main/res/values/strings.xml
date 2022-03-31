@@ -28,10 +28,14 @@
     <string name="start">START</string>
     <string name="correct_answer">CORRECT ANSWER!</string>
     <string name="incorrect_answer">INCORRECT ANSWER! IT WAS:</string>
-    <string name="points1">YOU_HAVE:</string>
-    <string name="points2">POINTS</string>
     <string name="nextq">NEXT QUESTION</string>
     <string name="goodr">THE CORRECT ANSWER WAS: </string>
+    <string name="tutorial">Here will appear the questions. Press any answer to start.</string>
+    <string name="r1">Answer 1 </string>
+    <string name="r2">Answer 2 </string>
+    <string name="r3">Answer 3 </string>
+    <string name="r4">Answer 4 </string>
+
 
 
 

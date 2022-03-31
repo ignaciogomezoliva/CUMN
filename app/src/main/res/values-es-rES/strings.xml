@@ -20,10 +20,13 @@
     <string name="start">INICIO</string>
     <string name="correct_answer">RESPUESTA CORRECTA!</string>
     <string name="incorrect_answer">RESPUESTA INCORRECTA! ERA:</string>
-    <string name="points1">TIENES: </string>
-    <string name="points2"> PUNTOS</string>
     <string name="nextq">SIGUIENTE PREGUNTA</string>
     <string name="goodr">LA RESPOUESTA CORRECTA ERA: </string>
+    <string name="tutorial">Aquí aparecerán las preguntas. Pulse cualquiera de las respuestas para empezar</string>
+    <string name="r1">Respuesta 1 </string>
+    <string name="r2">Respuesta 2 </string>
+    <string name="r3">Respuesta 3 </string>
+    <string name="r4">Respuesta 4 </string>
 
 
 
