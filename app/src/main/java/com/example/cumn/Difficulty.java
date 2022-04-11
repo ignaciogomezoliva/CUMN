@@ -53,7 +53,7 @@ public class Difficulty extends AppCompatActivity {
         if (activity.equals("Normal"))
             intent = new Intent(this, Normal.class);
         else if (activity.equals("Categorias"))
-            intent = new Intent(this, Categorias.class);
+            intent = new Intent(this, CategoriasG.class);
         else
             intent = new Intent(this, Estudio.class);
 

@@ -14,4 +14,12 @@ public interface ITriviaAPI {
             @Query("difficulty") String difficulty,
             @Query("type") String type
     );
+
+    @GET("/api.php")
+    public Call<Pregunta> categories(
+            @Query("amount") int amount,
+            @Query("category") int category,
+            @Query("difficulty") String difficulty,
+            @Query("type") String type
+    );
 }

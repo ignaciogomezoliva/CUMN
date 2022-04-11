@@ -8,13 +8,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.cumn.rest.ITriviaAPI;
 import com.example.cumn.rest.ServiceAPi;
 import com.example.cumn.rest.models.Pregunta;
 import com.example.cumn.rest.models.Result;
@@ -28,22 +26,22 @@ import java.util.Random;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Normal extends AppCompatActivity {
+public class CategoriasG extends AppCompatActivity {
 
+    private SharedPreferences preferences;
     private List<String> buena = new ArrayList<String>();
     private int puntos;
-    private SharedPreferences preferences;
+    int category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_normal);
+        setContentView(R.layout.activity_categorias_g);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         buena.add(0, "");
+
 
     }
 
@@ -94,7 +92,28 @@ public class Normal extends AppCompatActivity {
 
             }
 
-            ServiceAPi.getInstance().normal(1, dif, "multiple").enqueue(new Callback<Pregunta>() {
+            switch (preferences.getInt("Cat", 0)){
+                case 0: //Entertainment
+                    categoryRnd(0);
+                    break;
+                case 1: //Science
+                    categoryRnd(1);
+                    break;
+                case 21:
+                    category = 21;
+                    break;
+                case 22:
+                    category = 22;
+                    break;
+                case 23:
+                    category = 23;
+                    break;
+                case 25:
+                    category = 25;
+                    break;
+            }
+
+            ServiceAPi.getInstance().categories(1, category, dif, "multiple").enqueue(new Callback<Pregunta>() {
                 @Override
                 public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
                     Pregunta pregunta = response.body();
@@ -134,6 +153,64 @@ public class Normal extends AppCompatActivity {
         }
 
     }
+
+    private void categoryRnd(int tipo){
+        switch (tipo){
+            case 0:
+                Random rnd = new Random();
+                switch(rnd.nextInt(9)){
+                    case 0:
+                        category = 10; //Books
+                        break;
+                    case 1:
+                        category = 11; //Film
+                        break;
+                    case 2:
+                        category = 12; //Music
+                        break;
+                    case 3:
+                        category = 13; //Musical&Theaters
+                        break;
+                    case 4:
+                        category = 14; //TV
+                        break;
+                    case 5:
+                        category = 15; //Videogames
+                        break;
+                    case 6:
+                        category = 16; //Boardgames
+                        break;
+                    case 7:
+                        category = 29; //Comics
+                        break;
+                    case 8:
+                        category = 31; //Jap Anime Manga
+                        break;
+                    case 9:
+                        category = 32; //Cartoons
+                        break;
+                }
+                break;
+
+            case 1:
+                Random r = new Random();
+                switch(r.nextInt(3)) {
+                    case 0:
+                        category = 17; //Science Nature
+                        break;
+                    case 1:
+                        category = 18; //Computers
+                        break;
+                    case 2:
+                        category = 19; //Maths
+                        break;
+                    case 3:
+                        category = 30; //Gadgets
+                        break;
+                }
+                break;
+        }
+
+    }
+
 }
-
-

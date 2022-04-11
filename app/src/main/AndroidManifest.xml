@@ -15,12 +15,15 @@
             android:name=".Estudio"
             android:exported="false" />
         <activity
+            android:name=".CategoriasG"
+            android:exported="false" />
+        <activity
             android:name=".Puntuacion"
             android:exported="false" />
         <activity
             android:name=".Normal"
             android:exported="false" />
-        <activity
+                <activity
             android:name=".Categorias"
             android:exported="false" />
         <activity

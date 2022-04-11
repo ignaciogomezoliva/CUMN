@@ -16,5 +16,19 @@
     <string name="geography">GEOGRAFÍA</string>
     <string name="history">HISTORIA</string>
     <string name="art">ARTE</string>
+    <string name="pts">PUNTUACIÓN:</string>
+    <string name="start">INICIO</string>
+    <string name="correct_answer">RESPUESTA CORRECTA!</string>
+    <string name="incorrect_answer">RESPUESTA INCORRECTA! ERA:</string>
+    <string name="nextq">SIGUIENTE PREGUNTA</string>
+    <string name="goodr">LA RESPOUESTA CORRECTA ERA: </string>
+    <string name="tutorial">Aquí aparecerán las preguntas. Pulse cualquiera de las respuestas para empezar</string>
+    <string name="r1">Respuesta 1 </string>
+    <string name="r2">Respuesta 2 </string>
+    <string name="r3">Respuesta 3 </string>
+    <string name="r4">Respuesta 4 </string>
+
+
+
     <string name="study">ESTUDIO</string>
 </resources>
