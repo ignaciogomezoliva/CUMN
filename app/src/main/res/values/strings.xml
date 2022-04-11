@@ -24,5 +24,6 @@
     <string name="geography">GEOGRAPHY</string>
     <string name="history">HISTORY</string>
     <string name="art">ART</string>
+    <string name="study">STUDY</string>
 
 </resources>

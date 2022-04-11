@@ -34,9 +34,9 @@ SharedPreferences preferences;
         startActivity(intent);
     }
 
-    public void setPrevContr(View view){
+    public void setPrevEst(View view){
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("Prev", "Contrarreloj").apply();
+        editor.putString("Prev", "Estudio").apply();
         System.out.println("Previo: " + preferences.getString("Prev", ""));
         Intent intent = new Intent(this, Difficulty.class);
         startActivity(intent);

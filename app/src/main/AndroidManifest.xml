@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".Estudio"
+            android:exported="false" />
+        <activity
             android:name=".Puntuacion"
             android:exported="false" />
         <activity
             android:name=".Normal"
-            android:exported="false" />
-        <activity
-            android:name=".Contrarreloj"
             android:exported="false" />
         <activity
             android:name=".Categorias"
