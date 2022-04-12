@@ -19,7 +19,7 @@
         app:cardElevation="8dp"
         >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center"
@@ -27,7 +27,8 @@
     <TextView
         android:id="@+id/preguntaR"
         android:layout_width="match_parent"
-        android:layout_height="138dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
         android:background="#0EC1B8"
         android:gravity="center"
         android:text="@string/tutorial"
@@ -38,12 +39,13 @@
     <TextView
         android:id="@+id/respuestaR"
         android:layout_width="match_parent"
-        android:layout_height="74dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/preguntaR"
         android:background="#FFFFFF"
         android:text="@string/r1"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="24sp"
+
         android:gravity="center"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
