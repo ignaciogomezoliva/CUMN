@@ -33,6 +33,8 @@ public class CategoriasG extends AppCompatActivity {
     private List<String> buena = new ArrayList<String>();
     private int puntos;
     int category;
+    List<Result> resultado=null;
+    private int cont=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,54 @@ public class CategoriasG extends AppCompatActivity {
 
         buena.add(0, "");
 
+        String dif = "";
 
+        switch (preferences.getInt("Dif", 0)){
+            case 0:
+                dif="easy";
+                break;
+            case 1:
+                dif="medium";
+                break;
+            case 2:
+                dif="hard";
+                break;
+
+        }
+
+        switch (preferences.getInt("Cat", 0)){
+            case 0: //Entertainment
+                categoryRnd(0);
+                break;
+            case 1: //Science
+                categoryRnd(1);
+                break;
+            case 21:
+                category = 21;
+                break;
+            case 22:
+                category = 22;
+                break;
+            case 23:
+                category = 23;
+                break;
+            case 25:
+                category = 25;
+                break;
+        }
+
+        ServiceAPi.getInstance().categories(12, category, dif, "multiple").enqueue(new Callback<Pregunta>() {
+            @Override
+            public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
+                Pregunta pregunta = response.body();
+                 resultado = pregunta.getResults();
+            }
+
+            @Override
+            public void onFailure(Call<Pregunta> call, Throwable t) {
+                Log.e("error", t.toString());
+            }
+        });
     }
 
     public void siguientePregunta(View view){
@@ -77,74 +126,27 @@ public class CategoriasG extends AppCompatActivity {
 
         if(buena.size() < 13){
 
-            String dif = "";
+            List<String> incorrectas = resultado.get(cont).getIncorrectAnswers();
+            List<String> randomList = new ArrayList<String>();
+            Random rnd = new Random();
 
-            switch (preferences.getInt("Dif", 0)){
-                case 0:
-                    dif="easy";
-                    break;
-                case 1:
-                    dif="medium";
-                    break;
-                case 2:
-                    dif="hard";
-                    break;
+            //Jsoup parse sustituye los simbolos raros ;)
+            ((TextView)findViewById(R.id.Pregunta)).setText(Jsoup.parse(resultado.get(cont).getQuestion()).text());
 
-            }
+            buena.add(Jsoup.parse(resultado.get(cont).getCorrectAnswer()).text());
 
-            switch (preferences.getInt("Cat", 0)){
-                case 0: //Entertainment
-                    categoryRnd(0);
-                    break;
-                case 1: //Science
-                    categoryRnd(1);
-                    break;
-                case 21:
-                    category = 21;
-                    break;
-                case 22:
-                    category = 22;
-                    break;
-                case 23:
-                    category = 23;
-                    break;
-                case 25:
-                    category = 25;
-                    break;
-            }
+            randomList.addAll(incorrectas);
+            randomList.add(resultado.get(cont).getCorrectAnswer());
 
-            ServiceAPi.getInstance().categories(1, category, dif, "multiple").enqueue(new Callback<Pregunta>() {
-                @Override
-                public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
-                    Pregunta pregunta = response.body();
-                    List<Result> respuestas = pregunta.getResults();
-                    List<String> incorrectas = respuestas.get(0).getIncorrectAnswers();
-                    List<String> randomList = new ArrayList<String>();
-                    Random rnd = new Random();
+            ((Button)findViewById(R.id.respuesta1)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    //Jsoup parse sustituye los simbolos raros ;)
-                    ((TextView)findViewById(R.id.Pregunta)).setText(Jsoup.parse(respuestas.get(0).getQuestion()).text());
+            ((Button)findViewById(R.id.respuesta2)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    buena.add(Jsoup.parse(respuestas.get(0).getCorrectAnswer()).text());
+            ((Button)findViewById(R.id.respuesta3)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    randomList.addAll(incorrectas);
-                    randomList.add(respuestas.get(0).getCorrectAnswer());
+            ((Button)findViewById(R.id.respuesta4)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    ((Button)findViewById(R.id.respuesta1)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
-
-                    ((Button)findViewById(R.id.respuesta2)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
-
-                    ((Button)findViewById(R.id.respuesta3)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
-
-                    ((Button)findViewById(R.id.respuesta4)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
-
-                }
-
-                @Override
-                public void onFailure(Call<Pregunta> call, Throwable t) {
-                    Log.e("error", t.toString());
-                }
-            });
+            cont ++;
 
         } else{
             Intent intent = new Intent(this, Puntuacion.class);

@@ -4,18 +4,19 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ServiceAPi {
-    /// https://opentdb.com/api.php?amount=1
+public class TranslateAPI {
+    /// https://api-free.deepl.com
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://opentdb.com/")
+            .baseUrl("https://api-free.deepl.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build();
-    private static ITriviaAPI service;
+    private static ITranslateAPI service;
 
-    public static ITriviaAPI getInstance(){
+    public static ITranslateAPI getInstance(){
         if (service == null)
-            service = retrofit.create(ITriviaAPI.class);
+            service = retrofit.create(ITranslateAPI.class);
         return service;
     }
+
 }

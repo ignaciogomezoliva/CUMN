@@ -1,5 +1,7 @@
 package com.example.cumn;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,34 +10,41 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.cumn.rest.ITriviaAPI;
+
 import com.example.cumn.rest.ServiceAPi;
+import com.example.cumn.rest.TranslateAPI;
+
 import com.example.cumn.rest.models.Pregunta;
 import com.example.cumn.rest.models.Result;
+
 
 import org.jsoup.Jsoup;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Random;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 
 public class Normal extends AppCompatActivity {
 
     private List<String> buena = new ArrayList<String>();
     private int puntos;
     private SharedPreferences preferences;
+    List<Result> resultado = new ArrayList<>(); //Resultado de la llamada a la API
+    private int cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +53,28 @@ public class Normal extends AppCompatActivity {
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         buena.add(0, "");
+
+        String dif = "";
+
+        switch (preferences.getInt("Dif", 0)){
+            case 0:
+                dif="easy";
+                break;
+            case 1:
+                dif="medium";
+                break;
+            case 2:
+                dif="hard";
+                break;
+
+        }
+
+        if(preferences.getInt("Lang", 0) == 0)
+            cargarPreguntasESP(dif);
+        else
+            cargarPreguntasENG(dif);
+        System.out.println("Preguntas cargadas");
+
 
     }
 
@@ -77,56 +108,29 @@ public class Normal extends AppCompatActivity {
             }
         }
 
-        if(buena.size() < 13){
+        if(buena.size() < 13 ){
 
-            String dif = "";
+            List<String> incorrectas = resultado.get(cont).getIncorrectAnswers();
+            List<String> randomList = new ArrayList<String>();
+            Random rnd = new Random();
 
-            switch (preferences.getInt("Dif", 0)){
-                case 0:
-                    dif="easy";
-                    break;
-                case 1:
-                    dif="medium";
-                    break;
-                case 2:
-                    dif="hard";
-                    break;
+            //Jsoup parse sustituye los simbolos raros ;)
+            ((TextView)findViewById(R.id.Pregunta)).setText(Jsoup.parse(resultado.get(cont).getQuestion()).text());
 
-            }
+            buena.add(Jsoup.parse(resultado.get(cont).getCorrectAnswer()).text());
 
-            ServiceAPi.getInstance().normal(1, dif, "multiple").enqueue(new Callback<Pregunta>() {
-                @Override
-                public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
-                    Pregunta pregunta = response.body();
-                    List<Result> respuestas = pregunta.getResults();
-                    List<String> incorrectas = respuestas.get(0).getIncorrectAnswers();
-                    List<String> randomList = new ArrayList<String>();
-                    Random rnd = new Random();
+            randomList.addAll(incorrectas);
+            randomList.add(resultado.get(cont).getCorrectAnswer());
 
-                    //Jsoup parse sustituye los simbolos raros ;)
-                    ((TextView)findViewById(R.id.Pregunta)).setText(Jsoup.parse(respuestas.get(0).getQuestion()).text());
+            ((Button)findViewById(R.id.respuesta1)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    buena.add(Jsoup.parse(respuestas.get(0).getCorrectAnswer()).text());
+            ((Button)findViewById(R.id.respuesta2)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    randomList.addAll(incorrectas);
-                    randomList.add(respuestas.get(0).getCorrectAnswer());
+            ((Button)findViewById(R.id.respuesta3)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    ((Button)findViewById(R.id.respuesta1)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
+            ((Button)findViewById(R.id.respuesta4)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
-                    ((Button)findViewById(R.id.respuesta2)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
-
-                    ((Button)findViewById(R.id.respuesta3)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
-
-                    ((Button)findViewById(R.id.respuesta4)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
-
-                }
-
-                @Override
-                public void onFailure(Call<Pregunta> call, Throwable t) {
-                    Log.e("error", t.toString());
-                }
-            });
-
+            cont ++;
         } else{
             Intent intent = new Intent(this, Puntuacion.class);
             intent.putExtra("punt", puntos);
@@ -134,6 +138,62 @@ public class Normal extends AppCompatActivity {
         }
 
     }
+
+    public void cargarPreguntasESP(String dif){
+        ServiceAPi.getInstance()
+                .normal(12, dif, "multiple")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Function<Pregunta, Pregunta>() {
+                    @Override
+                    public Pregunta apply (Pregunta pregunta) throws Exception {
+                        for(Result r:pregunta.getResults()){
+                            TranslateAPI.getInstance()
+                                    .traduccion("18a62192-f4c7-6641-85c8-99f2845baf26:fx", r.getQuestion(), "ES")
+                                    .subscribe(x ->{
+                                        r.setQuestion(x.getTranslations().get(0).getText());
+                                    });
+
+                            TranslateAPI.getInstance()
+                                    .traduccion("18a62192-f4c7-6641-85c8-99f2845baf26:fx", r.getCorrectAnswer(), "ES")
+                                    .subscribe(x ->{
+                                        r.setCorrectAnswer(x.getTranslations().get(0).getText());
+                                    });
+
+                            List<String> incorr = new ArrayList<>();
+                            for (String i:r.getIncorrectAnswers()){
+                                TranslateAPI.getInstance()
+                                        .traduccion("18a62192-f4c7-6641-85c8-99f2845baf26:fx", i, "ES")
+                                        .subscribe(x ->{
+                                            incorr.add(x.getTranslations().get(0).getText());
+                                        });
+                            }
+                            r.setIncorrectAnswers(incorr);
+
+                        }
+
+                        return pregunta;
+                    }
+                })
+                .subscribe(x ->{
+                    resultado = x.getResults();
+                });
+
+
+    }
+
+    public void cargarPreguntasENG(String dif){
+        ServiceAPi.getInstance()
+                .normal(12, dif, "multiple")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(x ->{
+                    resultado = x.getResults();
+                });
+
+
+    }
+
 }
 
 

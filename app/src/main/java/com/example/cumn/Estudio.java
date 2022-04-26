@@ -56,6 +56,7 @@ public class Estudio extends AppCompatActivity {
                 dif = "hard";
                 break;
         }
+        /*
         ServiceAPi.getInstance().normal(numPreguntas, dif, "multiple").enqueue(new Callback<Pregunta>() {
             @Override
             public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
@@ -76,7 +77,7 @@ public class Estudio extends AppCompatActivity {
             }
 
         });
-
+*/
 
 
     }
