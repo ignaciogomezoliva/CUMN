@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -56,29 +58,20 @@ public class Estudio extends AppCompatActivity {
                 dif = "hard";
                 break;
         }
-        /*
-        ServiceAPi.getInstance().normal(numPreguntas, dif, "multiple").enqueue(new Callback<Pregunta>() {
-            @Override
-            public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
-                Pregunta pregunta = response.body();
-                List<Result> respuestas = pregunta.getResults();
+        ServiceAPi.getInstance()
+                .normal(numPreguntas, dif, "multiple")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(x -> {
+                    List<Result> respuestas = x.getResults();
 
-                for(int i=0; i<numPreguntas;i++){
-                    preguntas.add(Jsoup.parse(respuestas.get(i).getQuestion()).text());
-                    respuestasR.add(Jsoup.parse(respuestas.get(i).getCorrectAnswer()).text());
-                }
+                    for(int i=0; i<numPreguntas;i++){
+                        preguntas.add(Jsoup.parse(respuestas.get(i).getQuestion()).text());
+                        respuestasR.add(Jsoup.parse(respuestas.get(i).getCorrectAnswer()).text());
+                    }
 
-                initRecyclerView();
-            }
-
-            @Override
-            public void onFailure(Call<Pregunta> call, Throwable t) {
-                Log.e("error", t.toString());
-            }
-
-        });
-*/
-
+                    initRecyclerView();
+                });
 
     }
 
