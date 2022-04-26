@@ -17,7 +17,7 @@ public interface ITriviaAPI {
     );
 
     @GET("/api.php")
-    public Call<Pregunta> categories(
+    public Observable<Pregunta> categories(
             @Query("amount") int amount,
             @Query("category") int category,
             @Query("difficulty") String difficulty,

@@ -27,8 +27,8 @@
     <string name="r2">Respuesta 2 </string>
     <string name="r3">Respuesta 3 </string>
     <string name="r4">Respuesta 4 </string>
-
-
-
+    <string name="cargando">Cargando...</string>
     <string name="study">ESTUDIO</string>
+    <string name="cargando_resultados">Cargando resultados...</string>
+
 </resources>

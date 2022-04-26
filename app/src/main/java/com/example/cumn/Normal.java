@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -75,10 +76,24 @@ public class Normal extends AppCompatActivity {
             cargarPreguntasENG(dif);
         System.out.println("Preguntas cargadas");
 
+        new CountDownTimer(6000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+                findViewById(R.id.respuesta1).setVisibility(View.VISIBLE);
+                findViewById(R.id.respuesta2).setVisibility(View.VISIBLE);
+                findViewById(R.id.respuesta3).setVisibility(View.VISIBLE);
+                findViewById(R.id.respuesta4).setVisibility(View.VISIBLE);
+                ((TextView)findViewById(R.id.Pregunta)).setText(R.string.tutorial);
+            }
+        }.start();
+
 
     }
 
-    public void siguientePregunta(View view){
+    public void siguientePregunta(View view) throws InterruptedException {
         Button boton = (Button)view;
 
         if (buena.size()>1){
@@ -132,11 +147,30 @@ public class Normal extends AppCompatActivity {
 
             cont ++;
         } else{
-            Intent intent = new Intent(this, Puntuacion.class);
-            intent.putExtra("punt", puntos);
-            startActivity(intent);
+            findViewById(R.id.respuesta1).setVisibility(View.GONE);
+            findViewById(R.id.respuesta2).setVisibility(View.GONE);
+            findViewById(R.id.respuesta3).setVisibility(View.GONE);
+            findViewById(R.id.respuesta4).setVisibility(View.GONE);
+            ((TextView)findViewById(R.id.Pregunta)).setText(R.string.cargando_resultados);
+            new CountDownTimer(2000, 1000) {
+
+                public void onTick(long millisUntilFinished) {
+                }
+
+                public void onFinish() {
+                    pantallaPuntacion();
+                }
+            }.start();
+
+
         }
 
+    }
+
+    public void pantallaPuntacion(){
+        Intent intent = new Intent(this, Puntuacion.class);
+        intent.putExtra("punt", puntos);
+        startActivity(intent);
     }
 
     public void cargarPreguntasESP(String dif){

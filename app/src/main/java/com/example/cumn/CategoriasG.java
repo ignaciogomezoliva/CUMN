@@ -8,12 +8,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cumn.rest.ServiceAPi;
+import com.example.cumn.rest.TranslateAPI;
 import com.example.cumn.rest.models.Pregunta;
 import com.example.cumn.rest.models.Result;
 
@@ -23,6 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -80,18 +85,26 @@ public class CategoriasG extends AppCompatActivity {
                 break;
         }
 
-        ServiceAPi.getInstance().categories(12, category, dif, "multiple").enqueue(new Callback<Pregunta>() {
-            @Override
-            public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
-                Pregunta pregunta = response.body();
-                 resultado = pregunta.getResults();
+        if(preferences.getInt("Lang", 0) == 0)
+            cargarPreguntasESP(dif);
+        else
+            cargarPreguntasENG(dif);
+        System.out.println("Preguntas cargadas");
+
+        new CountDownTimer(6000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
             }
 
-            @Override
-            public void onFailure(Call<Pregunta> call, Throwable t) {
-                Log.e("error", t.toString());
+            public void onFinish() {
+                findViewById(R.id.respuesta1).setVisibility(View.VISIBLE);
+                findViewById(R.id.respuesta2).setVisibility(View.VISIBLE);
+                findViewById(R.id.respuesta3).setVisibility(View.VISIBLE);
+                findViewById(R.id.respuesta4).setVisibility(View.VISIBLE);
+                ((TextView)findViewById(R.id.Pregunta)).setText(R.string.tutorial);
             }
-        });
+        }.start();
+
     }
 
     public void siguientePregunta(View view){
@@ -124,7 +137,7 @@ public class CategoriasG extends AppCompatActivity {
             }
         }
 
-        if(buena.size() < 13){
+        if(buena.size() < 13 ){
 
             List<String> incorrectas = resultado.get(cont).getIncorrectAnswers();
             List<String> randomList = new ArrayList<String>();
@@ -147,12 +160,86 @@ public class CategoriasG extends AppCompatActivity {
             ((Button)findViewById(R.id.respuesta4)).setText(Jsoup.parse(randomList.remove(rnd.nextInt(randomList.size()))).text());
 
             cont ++;
-
         } else{
-            Intent intent = new Intent(this, Puntuacion.class);
-            intent.putExtra("punt", puntos);
-            startActivity(intent);
+            findViewById(R.id.respuesta1).setVisibility(View.GONE);
+            findViewById(R.id.respuesta2).setVisibility(View.GONE);
+            findViewById(R.id.respuesta3).setVisibility(View.GONE);
+            findViewById(R.id.respuesta4).setVisibility(View.GONE);
+            ((TextView)findViewById(R.id.Pregunta)).setText(R.string.cargando_resultados);
+            new CountDownTimer(2000, 1000) {
+
+                public void onTick(long millisUntilFinished) {
+                }
+
+                public void onFinish() {
+                    pantallaPuntacion();
+                }
+            }.start();
+
+
         }
+
+    }
+
+    public void pantallaPuntacion(){
+        Intent intent = new Intent(this, Puntuacion.class);
+        intent.putExtra("punt", puntos);
+        startActivity(intent);
+    }
+
+
+    public void cargarPreguntasESP(String dif){
+        ServiceAPi.getInstance()
+                .categories(12, category,dif, "multiple")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Function<Pregunta, Pregunta>() {
+                    @Override
+                    public Pregunta apply (Pregunta pregunta) throws Exception {
+                        for(Result r:pregunta.getResults()){
+                            TranslateAPI.getInstance()
+                                    .traduccion("18a62192-f4c7-6641-85c8-99f2845baf26:fx", r.getQuestion(), "ES")
+                                    .subscribe(x ->{
+                                        r.setQuestion(x.getTranslations().get(0).getText());
+                                    });
+
+                            TranslateAPI.getInstance()
+                                    .traduccion("18a62192-f4c7-6641-85c8-99f2845baf26:fx", r.getCorrectAnswer(), "ES")
+                                    .subscribe(x ->{
+                                        r.setCorrectAnswer(x.getTranslations().get(0).getText());
+                                    });
+
+                            List<String> incorr = new ArrayList<>();
+                            for (String i:r.getIncorrectAnswers()){
+                                TranslateAPI.getInstance()
+                                        .traduccion("18a62192-f4c7-6641-85c8-99f2845baf26:fx", i, "ES")
+                                        .subscribe(x ->{
+                                            incorr.add(x.getTranslations().get(0).getText());
+                                        });
+                            }
+                            r.setIncorrectAnswers(incorr);
+
+                        }
+
+                        return pregunta;
+                    }
+                })
+                .subscribe(x ->{
+                    resultado = x.getResults();
+                });
+
+
+    }
+
+    public void cargarPreguntasENG(String dif){
+        ServiceAPi.getInstance()
+                .categories(12, category, dif, "multiple")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(x ->{
+                    resultado = x.getResults();
+                });
+
 
     }
 
