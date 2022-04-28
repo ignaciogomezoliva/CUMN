@@ -1,15 +1,16 @@
 package com.example.cumn;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -42,8 +43,11 @@ public class AuthActivity extends AppCompatActivity  {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = findViewById(R.id.emailText).toString();
-                password = findViewById(R.id.passwordText).toString();
+
+                EditText emailText = (EditText)findViewById(R.id.emailText);
+                EditText passText = (EditText)findViewById(R.id.passwordText);
+                email = emailText.getText().toString();
+                password = passText.getText().toString();
                 if(!email.isEmpty() && !password.isEmpty()){
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
                         public void onComplete(@NonNull Task task) {
@@ -51,6 +55,8 @@ public class AuthActivity extends AppCompatActivity  {
                                 changeActivity();
                                 editor.putInt("Login", 1).apply();
                             } else {
+                                System.out.println(task.getException());
+                                System.out.println(email);
                                 showAlert();
                             }
                         }
@@ -63,9 +69,10 @@ public class AuthActivity extends AppCompatActivity  {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // email = findViewById(R.id.emailText).toString();
-                //password = findViewById(R.id.passwordText).toString();
-                System.out.println(email);
+                EditText emailText = (EditText)findViewById(R.id.emailText);
+                EditText passText = (EditText)findViewById(R.id.passwordText);
+                email = emailText.getText().toString();
+                password = passText.getText().toString();
                 if(!email.isEmpty() && !password.isEmpty()){
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
                         public void onComplete(@NonNull Task task) {
