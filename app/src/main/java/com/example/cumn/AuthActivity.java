@@ -38,6 +38,7 @@ public class AuthActivity extends AppCompatActivity  {
     private void setUp(){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("Login", 0).apply();
+        Exception exception;
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,11 +59,13 @@ public class AuthActivity extends AppCompatActivity  {
             }
         });
 
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = findViewById(R.id.emailText).toString();
-                password = findViewById(R.id.passwordText).toString();
+               // email = findViewById(R.id.emailText).toString();
+                //password = findViewById(R.id.passwordText).toString();
+                System.out.println(email);
                 if(!email.isEmpty() && !password.isEmpty()){
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
                         public void onComplete(@NonNull Task task) {
@@ -70,6 +73,7 @@ public class AuthActivity extends AppCompatActivity  {
                                 changeActivity();
                                 editor.putInt("Login", 1).apply();
                             } else {
+                                System.out.println(task.getException());
                                 showAlert();
                             }
                         }
