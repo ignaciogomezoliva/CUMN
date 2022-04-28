@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="acento">#EEEEEE</color>
+    <color name="botones">#139487</color>
+    <color name="respuestas">#AAD8D3</color>
+    <color name="fondo">#005555</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

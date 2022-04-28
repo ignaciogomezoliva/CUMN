@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#025159"
+    android:background="@color/fondo"
     tools:context=".Puntuacion">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_height="63dp"
         android:text="@string/pts"
         android:textAlignment="center"
-        android:textColor="#F28705"
+        android:textColor="@color/acento"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
@@ -36,7 +36,7 @@
         android:layout_height="131dp"
         android:text="NULL"
         android:textAlignment="center"
-        android:textColor="#F28705"
+        android:textColor="@color/acento"
         android:textSize="94sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/punt"
@@ -49,7 +49,7 @@
         android:layout_height="99dp"
         android:layout_marginTop="176dp"
         android:layout_marginBottom="52dp"
-        android:backgroundTint="#0EC1B8"
+        android:backgroundTint="@color/botones"
         android:backgroundTintMode="src_in"
         android:onClick="inicio"
         android:text="@string/start"

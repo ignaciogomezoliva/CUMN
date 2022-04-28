@@ -14,7 +14,7 @@
         android:layout_columnWeight="1"
         android:layout_gravity="fill"
         android:layout_margin="8dp"
-        android:backgroundTint="#0EC1B8"
+        android:backgroundTint="@color/botones"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         >
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:background="#0EC1B8"
+        android:background="@color/botones"
         android:gravity="center"
         android:text="@string/tutorial"
         android:textAlignment="center"

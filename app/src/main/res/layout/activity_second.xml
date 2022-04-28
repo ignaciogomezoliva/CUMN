@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#025159"
+    android:background="@color/fondo"
     tools:context=".Difficulty">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:id="@+id/btn_easy"
         android:layout_width="375dp"
         android:layout_height="75dp"
-        android:backgroundTint="#0EC1B8"
+        android:backgroundTint="@color/botones"
         android:text="@string/easy"
         android:onClick="setDifficultyEasy"
         android:textColor="#FFFFFF"
@@ -37,7 +37,7 @@
         android:id="@+id/btn_med"
         android:layout_width="375dp"
         android:layout_height="75dp"
-        android:backgroundTint="#0EC1B8"
+        android:backgroundTint="@color/botones"
         android:text="@string/medium"
         android:onClick="setDifficultyMed"
         android:textColor="#FFFFFF"
@@ -52,7 +52,7 @@
         android:id="@+id/btn_hard"
         android:layout_width="375dp"
         android:layout_height="75dp"
-        android:backgroundTint="#0EC1B8"
+        android:backgroundTint="@color/botones"
         android:text="@string/hard"
         android:onClick="setDifficultyHard"
         android:textColor="#FFFFFF"

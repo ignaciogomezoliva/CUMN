@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#025159"
+    android:background="@color/fondo"
     tools:context=".Lang">
 
     <Button
@@ -12,7 +12,7 @@
         android:layout_width="361dp"
         android:layout_height="93dp"
         android:layout_marginBottom="256dp"
-        android:backgroundTint="#0EC1B8"
+        android:backgroundTint="@color/botones"
         android:backgroundTintMode="src_in"
         android:drawableLeft="@drawable/espana"
         android:text="ESPAÑOL"
@@ -28,7 +28,7 @@
         android:layout_width="361dp"
         android:layout_height="93dp"
         android:layout_marginTop="44dp"
-        android:backgroundTint="#00BFB8"
+        android:backgroundTint="@color/botones"
         android:backgroundTintMode="src_in"
         android:drawableLeft="@drawable/uk"
         android:text="ENGLISH"
@@ -48,7 +48,7 @@
         android:layout_marginBottom="44dp"
         android:text="Choose language | Seleccione el lenguaje"
         android:textAlignment="center"
-        android:textColor="#F28705"
+        android:textColor="@color/acento"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_esp"
         app:layout_constraintEnd_toEndOf="parent"
