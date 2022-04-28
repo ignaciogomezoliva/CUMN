@@ -55,8 +55,13 @@ private SharedPreferences preferences;
     }
 
     private void changeActivity() {
-        Intent intent = new Intent(this, MainMenu.class);
-        startActivity(intent);
+        if(preferences.getInt("Login", 0) == 0){
+            Intent intent = new Intent(this, AuthActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, MainMenu.class);
+            startActivity(intent);
+        }
     }
 
     private void setLanguageForApp(String languageToLoad){

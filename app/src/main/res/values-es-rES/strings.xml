@@ -31,4 +31,9 @@
 
 
     <string name="study">ESTUDIO</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="signUp">Registrarse</string>
+    <string name="logOut">Cerrar sesión</string>
 </resources>
