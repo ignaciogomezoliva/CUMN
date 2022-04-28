@@ -10,7 +10,27 @@
     >
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler_view"/>
+        android:layout_height="match_parent" />
+
+
+    <TextView
+        android:id="@+id/Cargando"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="392dp"
+        android:background="#0EC1B8"
+        android:gravity="center"
+        android:text="@string/cargando"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.382"
+        tools:ignore="TextContrastCheck" />
 </RelativeLayout>
