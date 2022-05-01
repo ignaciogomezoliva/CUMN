@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#025159"
+    android:background="@color/fondo"
     tools:context=".MainMenu"
     >
 
@@ -42,7 +42,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            android:backgroundTint="#0EC1B8"
+            android:backgroundTint="@color/botones"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             android:clickable="true"
@@ -81,7 +81,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            android:backgroundTint="#0EC1B8"
+            android:backgroundTint="@color/botones"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             android:clickable="true"
@@ -123,7 +123,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:backgroundTint="#0EC1B8"
+            android:backgroundTint="@color/botones"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             android:clickable="true"
@@ -162,7 +162,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            android:backgroundTint="#0EC1B8"
+            android:backgroundTint="@color/botones"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 

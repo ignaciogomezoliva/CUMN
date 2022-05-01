@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Estudio"
-    android:background="#025159"
+    android:background="@color/fondo"
     >
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,7 +21,7 @@
         android:layout_height="138dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="392dp"
-        android:background="#0EC1B8"
+        android:background="@color/botones"
         android:gravity="center"
         android:text="@string/cargando"
         android:textAlignment="center"
