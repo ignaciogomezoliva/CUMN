@@ -50,4 +50,9 @@ SharedPreferences preferences;
         Intent intent = new Intent(this, Lang.class);
         startActivity(intent);
     }
+
+    public void logOut(View view) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("Login", 0).apply();
+    }
 }

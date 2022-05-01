@@ -36,7 +36,14 @@
     <string name="r3">Answer 3 </string>
     <string name="r4">Answer 4 </string>
     <string name="cargando">Loading...</string>
+
+
     <string name="study">STUDY</string>
     <string name="cargando_resultados">Loading results...</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log in</string>
+    <string name="signUp">Sign up</string>
+    <string name="logOut">Log out</string>
 
 </resources>

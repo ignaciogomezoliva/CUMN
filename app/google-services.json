@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "344911101270",
+    "project_id": "trivia-cumn",
+    "storage_bucket": "trivia-cumn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344911101270:android:9164184d1b17d256416af7",
+        "android_client_info": {
+          "package_name": "com.example.cumn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344911101270-ih47cu4fmcrjeb1uncfgplh82fpigej3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQrGhreqZwt1g03M3K3RYzOYK-6MPxhEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344911101270-ih47cu4fmcrjeb1uncfgplh82fpigej3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
