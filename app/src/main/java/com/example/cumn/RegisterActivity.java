@@ -31,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         loginButton = findViewById(R.id.loginButtonR);
         signUpButton = findViewById(R.id.signUpButton);
+
+        setUp();
     }
 
     private void setUp(){
@@ -46,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                 username = usernameText.getText().toString();
                 email = emailText.getText().toString();
                 password = passText.getText().toString();
-                if(!email.isEmpty() && !password.isEmpty()){
+                if(!username.isEmpty()&&!email.isEmpty() && !password.isEmpty()){
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
                         public void onComplete(@NonNull Task task) {
                             if(task.isSuccessful()){

@@ -1,7 +1,5 @@
 package com.example.cumn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +7,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
-import java.sql.SQLOutput;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Locale;
 
 
@@ -56,7 +55,7 @@ private SharedPreferences preferences;
 
     private void changeActivity() {
         if(preferences.getInt("Login", 0) == 0){
-            Intent intent = new Intent(this, AuthActivity.class);
+            Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, MainMenu.class);
