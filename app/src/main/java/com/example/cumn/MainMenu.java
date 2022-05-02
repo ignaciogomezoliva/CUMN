@@ -53,6 +53,6 @@ SharedPreferences preferences;
 
     public void logOut(View view) {
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("Login", 0);
+        editor.putInt("Login", 0).apply();
     }
 }
