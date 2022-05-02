@@ -1,6 +1,5 @@
 package com.example.cumn;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -13,11 +12,5 @@ public class LogOutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_out);
-        changeActivity();
-    }
-
-    private void changeActivity() {
-            Intent intent = new Intent(this, RegisterActivity.class);
-            startActivity(intent);
     }
 }
