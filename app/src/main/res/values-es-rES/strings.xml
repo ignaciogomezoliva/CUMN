@@ -36,4 +36,6 @@
     <string name="login">Iniciar sesión</string>
     <string name="signUp">Registrarse</string>
     <string name="logOut">Cerrar sesión</string>
+    <string name="accountAlready">Ya tengo cuenta</string>
+    <string name="username">Nombre de usuario</string>
 </resources>

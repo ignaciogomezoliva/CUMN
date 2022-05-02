@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class AuthActivity extends AppCompatActivity  {
     private Button loginButton;
-    private Button signUpButton;
     private String email;
     private String password;
     private SharedPreferences preferences;
@@ -29,7 +28,6 @@ public class AuthActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_auth);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         loginButton = findViewById(R.id.loginButton);
-        signUpButton = findViewById(R.id.signUpButton);
 
 
 
@@ -39,31 +37,6 @@ public class AuthActivity extends AppCompatActivity  {
     private void setUp(){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("Login", 0).apply();
-        Exception exception;
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                EditText emailText = (EditText)findViewById(R.id.emailText);
-                EditText passText = (EditText)findViewById(R.id.passwordText);
-                email = emailText.getText().toString();
-                password = passText.getText().toString();
-                if(!email.isEmpty() && !password.isEmpty()){
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
-                        public void onComplete(@NonNull Task task) {
-                            if(task.isSuccessful()){
-                                changeActivity();
-                                editor.putInt("Login", 1).apply();
-                            } else {
-                                System.out.println(task.getException());
-                                System.out.println(email);
-                                showAlert();
-                            }
-                        }
-                    });
-                }
-            }
-        });
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {

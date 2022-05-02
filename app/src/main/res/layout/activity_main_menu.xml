@@ -192,23 +192,21 @@
 
 
     </GridLayout>
-
     <ImageButton
         android:id="@+id/btn_change_lang"
-        android:onClick="changeLang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="175dp"
+        android:layout_marginEnd="75dp"
         android:background="#00FFFFFF"
+        android:onClick="changeLang"
         android:src="@drawable/idiomas2"
         tools:src="@drawable/idiomas2" />
 
     <Button
-        android:id="@+id/button"
-        android:onClick="logOut"
+        android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
@@ -218,7 +216,8 @@
         android:layout_marginEnd="52dp"
         android:layout_marginBottom="517dp"
         android:layout_toStartOf="@+id/btn_change_lang"
-        android:text="Button" />
+        android:onClick="logOut"
+        android:text="@string/logOut" />
 
 
 </RelativeLayout>

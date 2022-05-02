@@ -1,12 +1,12 @@
 package com.example.cumn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainMenu extends AppCompatActivity {
 SharedPreferences preferences;
@@ -54,5 +54,7 @@ SharedPreferences preferences;
     public void logOut(View view) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("Login", 0).apply();
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 }
