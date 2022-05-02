@@ -16,8 +16,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AuthActivity extends AppCompatActivity  {
+public class RegisterActivity extends AppCompatActivity {
     private Button loginButton;
+    private Button signUpButton;
+    private String username;
     private String email;
     private String password;
     private SharedPreferences preferences;
@@ -25,35 +27,34 @@ public class AuthActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth);
+        setContentView(R.layout.activity_register);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
-        loginButton = findViewById(R.id.loginButton);
-
-
-
-        //Setup
-        setUp();
+        loginButton = findViewById(R.id.loginButtonR);
+        signUpButton = findViewById(R.id.signUpButton);
     }
+
     private void setUp(){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("Login", 0).apply();
-
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText emailText = (EditText)findViewById(R.id.emailText);
-                EditText passText = (EditText)findViewById(R.id.passwordText);
+
+                EditText usernameText = (EditText)findViewById(R.id.usernameText);
+                EditText emailText = (EditText)findViewById(R.id.emailTextR);
+                EditText passText = (EditText)findViewById(R.id.passwordTextR);
+                username = usernameText.getText().toString();
                 email = emailText.getText().toString();
                 password = passText.getText().toString();
                 if(!email.isEmpty() && !password.isEmpty()){
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
                         public void onComplete(@NonNull Task task) {
                             if(task.isSuccessful()){
-                                changeActivity();
+                                changeActivity(true);
                                 editor.putInt("Login", 1).apply();
                             } else {
                                 System.out.println(task.getException());
+                                System.out.println(email);
                                 showAlert();
                             }
                         }
@@ -61,18 +62,31 @@ public class AuthActivity extends AppCompatActivity  {
                 }
             }
         });
+
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeActivity(false);
+            }
+        });
     }
     private void showAlert(){
-       AlertDialog.Builder builder = new AlertDialog.Builder(this);
-       builder.setTitle("Error");
-       builder.setMessage("Error 45111");
-       builder.setPositiveButton("Okay", null);
-       AlertDialog dialog = builder.create();
-       dialog.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Error");
+        builder.setMessage("Error 45111");
+        builder.setPositiveButton("Okay", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
+    private void changeActivity(Boolean election){
+        if (election){
+            Intent intent = new Intent(this, MainMenu.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, AuthActivity.class);
+            startActivity(intent);
+        }
 
-    private void changeActivity(){
-        Intent intent = new Intent(this, MainMenu.class);
-        startActivity(intent);
     }
 }
