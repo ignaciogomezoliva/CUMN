@@ -48,5 +48,9 @@
     <string name="accountAlready">I have an account</string>
     <string name="username">Username</string>
     <string name="createAccount">Create an account</string>
+    <string name="error_username">Username is Required.</string>
+    <string name="error_email">Email is Required.</string>
+    <string name="error_password">Password length must be 6 or more.</string>
+    <string name="error_auth">Auth failed, please try again.</string>
 
 </resources>

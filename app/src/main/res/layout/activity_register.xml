@@ -35,38 +35,39 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="60dp" />
+
         <EditText
             android:id="@+id/usernameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/botones"
             android:ems="10"
             android:hint="@string/username"
             android:inputType="text"
-            android:textColorHint="#FBFBFB"
-            android:backgroundTint="@color/botones"
-            />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FBFBFB" />
 
         <EditText
             android:id="@+id/emailTextR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/botones"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:textColorHint="#FBFBFB"
-            android:backgroundTint="@color/botones"
-            />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FBFBFB" />
 
         <EditText
             android:id="@+id/passwordTextR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/botones"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textColorHint="#FBFBFB"
-            android:backgroundTint="@color/botones"
-            />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FBFBFB" />
 
         <Space
             android:layout_width="match_parent"

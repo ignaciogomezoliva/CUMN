@@ -44,11 +44,11 @@ public class AuthActivity extends AppCompatActivity  {
                 email = emailText.getText().toString();
                 password = passText.getText().toString();
                 if(TextUtils.isEmpty(email)){
-                    emailText.setError("Email is Required.");
+                    emailText.setError(getString(R.string.error_email));
                     return;
                 }
                 if(password.length()<6){
-                    passText.setError("Password length must be 6 or more.");
+                    passText.setError(getString(R.string.error_password));
                     return;
                 }
 
@@ -76,7 +76,7 @@ public class AuthActivity extends AppCompatActivity  {
     private void showAlert(){
        AlertDialog.Builder builder = new AlertDialog.Builder(this);
        builder.setTitle("Error");
-       builder.setMessage("Error 45111");
+       builder.setMessage(getString(R.string.error_auth));
        builder.setPositiveButton("Okay", null);
        AlertDialog dialog = builder.create();
        dialog.show();

@@ -39,4 +39,9 @@
     <string name="accountAlready">Ya tengo cuenta</string>
     <string name="username">Nombre de usuario</string>
     <string name="createAccount">Crear una cuenta</string>
+    <string name="error_username">El nombre de usuario es requerido</string>
+    <string name="error_email">El email es requerido</string>
+    <string name="error_password">La contraseña debe ser de 6 o más carateres</string>
+    <string name="error_auth">La autenticación ha fallado, vuelva a intentarlo</string>
+
 </resources>
