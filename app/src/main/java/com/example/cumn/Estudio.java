@@ -1,16 +1,16 @@
 package com.example.cumn;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cumn.rest.ServiceAPi;
 import com.example.cumn.rest.TranslateAPI;
@@ -21,14 +21,10 @@ import org.jsoup.Jsoup;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Estudio extends AppCompatActivity {
 
@@ -82,6 +78,7 @@ public class Estudio extends AppCompatActivity {
 
             public void onFinish() {
                 ((TextView)findViewById(R.id.Cargando)).setVisibility(View.GONE);
+                findViewById(R.id.home).setVisibility(View.VISIBLE);
                 initRecyclerView();
             }
         }.start();
@@ -147,5 +144,11 @@ public class Estudio extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(preguntas, respuestasR);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    public void toMainMenu(View view) {
+        Intent intent = null;
+        intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
     }
 }
