@@ -59,7 +59,7 @@ public class Lang extends AppCompatActivity {
 
     private void changeActivity() {
         if(fAuth.getCurrentUser() == null){
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, AuthActivity.class);
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, MainMenu.class);

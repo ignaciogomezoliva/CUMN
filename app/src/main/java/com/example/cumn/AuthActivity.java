@@ -2,6 +2,7 @@ package com.example.cumn;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,18 +43,26 @@ public class AuthActivity extends AppCompatActivity  {
                 EditText passText = (EditText)findViewById(R.id.passwordText);
                 email = emailText.getText().toString();
                 password = passText.getText().toString();
-                if(!email.isEmpty() && !password.isEmpty()){
-                    fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
-                        public void onComplete(@NonNull Task task) {
-                            if(task.isSuccessful()){
-                                changeActivity();
-                            } else {
-                                System.out.println(task.getException());
-                                showAlert();
-                            }
-                        }
-                    });
+                if(TextUtils.isEmpty(email)){
+                    emailText.setError("Email is Required.");
+                    return;
                 }
+                if(password.length()<6){
+                    passText.setError("Password length must be 6 or more.");
+                    return;
+                }
+
+                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
+                    public void onComplete(@NonNull Task task) {
+                        if(task.isSuccessful()){
+                            changeActivity();
+                        } else {
+                            System.out.println(task.getException());
+                            showAlert();
+                        }
+                    }
+                });
+
             }
         });
 
