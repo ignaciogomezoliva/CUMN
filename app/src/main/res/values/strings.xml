@@ -45,5 +45,6 @@
     <string name="logOut">Log out</string>
     <string name="accountAlready">I have an account</string>
     <string name="username">Username</string>
+    <string name="createAccount">Create an account</string>
 
 </resources>

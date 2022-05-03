@@ -1,8 +1,6 @@
 package com.example.cumn;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,26 +16,24 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class AuthActivity extends AppCompatActivity  {
     private Button loginButton;
+    private Button singUpButton;
     private String email;
     private String password;
-    private SharedPreferences preferences;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         loginButton = findViewById(R.id.loginButton);
-
+        singUpButton = findViewById(R.id.signUpButtonA);
+        fAuth = FirebaseAuth.getInstance();
 
 
         //Setup
         setUp();
     }
     private void setUp(){
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("Login", 0).apply();
-
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,11 +43,10 @@ public class AuthActivity extends AppCompatActivity  {
                 email = emailText.getText().toString();
                 password = passText.getText().toString();
                 if(!email.isEmpty() && !password.isEmpty()){
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
+                    fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
                         public void onComplete(@NonNull Task task) {
                             if(task.isSuccessful()){
                                 changeActivity();
-                                editor.putInt("Login", 1).apply();
                             } else {
                                 System.out.println(task.getException());
                                 showAlert();
@@ -59,6 +54,13 @@ public class AuthActivity extends AppCompatActivity  {
                         }
                     });
                 }
+            }
+        });
+
+        singUpButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
             }
         });
     }
