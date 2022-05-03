@@ -9,16 +9,20 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Locale;
 
 
 public class Lang extends AppCompatActivity {
-private SharedPreferences preferences;
+    private SharedPreferences preferences;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        fAuth = FirebaseAuth.getInstance();
         System.out.println("Preferencias: ");
         System.out.println(preferences.getInt("Lang", 0));
         if(preferences.getInt("Lang", 0) == 0 || preferences.getInt("Lang", 0) == 1) {
@@ -54,8 +58,8 @@ private SharedPreferences preferences;
     }
 
     private void changeActivity() {
-        if(preferences.getInt("Login", 0) == 0){
-            Intent intent = new Intent(this, RegisterActivity.class);
+        if(fAuth.getCurrentUser() == null){
+            Intent intent = new Intent(this, AuthActivity.class);
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, MainMenu.class);

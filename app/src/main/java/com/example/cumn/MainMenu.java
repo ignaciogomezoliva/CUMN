@@ -8,14 +8,18 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainMenu extends AppCompatActivity {
-SharedPreferences preferences;
+    SharedPreferences preferences;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        fAuth = FirebaseAuth.getInstance();
     }
 
     public void setPrevNormal(View view){
@@ -52,9 +56,8 @@ SharedPreferences preferences;
     }
 
     public void logOut(View view) {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("Login", 0).apply();
-        Intent intent = new Intent(this, RegisterActivity.class);
+        fAuth.signOut();
+        Intent intent = new Intent(this, AuthActivity.class);
         startActivity(intent);
     }
 }

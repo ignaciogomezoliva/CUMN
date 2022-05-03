@@ -38,4 +38,5 @@
     <string name="logOut">Cerrar sesión</string>
     <string name="accountAlready">Ya tengo cuenta</string>
     <string name="username">Nombre de usuario</string>
+    <string name="createAccount">Crear una cuenta</string>
 </resources>

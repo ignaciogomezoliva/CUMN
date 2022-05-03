@@ -1,9 +1,8 @@
 package com.example.cumn;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegisterActivity extends AppCompatActivity {
     private Button loginButton;
@@ -22,22 +22,20 @@ public class RegisterActivity extends AppCompatActivity {
     private String username;
     private String email;
     private String password;
-    private SharedPreferences preferences;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         loginButton = findViewById(R.id.loginButtonR);
         signUpButton = findViewById(R.id.signUpButton);
-
+        fAuth = FirebaseAuth.getInstance();
         setUp();
     }
 
     private void setUp(){
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("Login", 0).apply();
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,20 +46,32 @@ public class RegisterActivity extends AppCompatActivity {
                 username = usernameText.getText().toString();
                 email = emailText.getText().toString();
                 password = passText.getText().toString();
-                if(!username.isEmpty()&&!email.isEmpty() && !password.isEmpty()){
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
-                        public void onComplete(@NonNull Task task) {
-                            if(task.isSuccessful()){
-                                changeActivity(true);
-                                editor.putInt("Login", 1).apply();
-                            } else {
-                                System.out.println(task.getException());
-                                System.out.println(email);
-                                showAlert();
-                            }
-                        }
-                    });
+
+                if(TextUtils.isEmpty(username)){
+                    usernameText.setError("Username is Required.");
+                    return;
                 }
+                if(TextUtils.isEmpty(email)){
+                    emailText.setError("Email is Required.");
+                    return;
+                }
+                if(password.length()<6){
+                    passText.setError("Password length must be 6 or more.");
+                    return;
+                }
+
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener() {
+                    public void onComplete(@NonNull Task task) {
+                        if(task.isSuccessful()){
+                            changeActivity(true);
+                        } else {
+                            System.out.println(task.getException());
+                            System.out.println(email);
+                            showAlert();
+                        }
+                    }
+                });
+
             }
         });
 
