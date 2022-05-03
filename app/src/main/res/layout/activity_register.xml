@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="@color/fondo"
+    >
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,20 +18,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="208dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:cropToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.002"
+            app:srcCompat="@drawable/logo2" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
         <EditText
             android:id="@+id/usernameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/username"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColorHint="#FBFBFB"
+            android:backgroundTint="@color/botones"
+            />
+
         <EditText
             android:id="@+id/emailTextR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColorHint="#FBFBFB"
+            android:backgroundTint="@color/botones"
+            />
 
         <EditText
             android:id="@+id/passwordTextR"
@@ -37,7 +63,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColorHint="#FBFBFB"
+            android:backgroundTint="@color/botones"
+            />
 
         <Space
             android:layout_width="match_parent"
@@ -53,14 +82,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/signUp" />
+                android:backgroundTint="@color/botones"
+                android:text="@string/signUp"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/loginButtonR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/accountAlready" />
+                android:backgroundTint="@color/botones"
+                android:text="@string/accountAlready"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
     </LinearLayout>

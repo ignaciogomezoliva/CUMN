@@ -216,8 +216,10 @@
         android:layout_marginEnd="52dp"
         android:layout_marginBottom="517dp"
         android:layout_toStartOf="@+id/btn_change_lang"
+        android:backgroundTint="@color/botones"
         android:onClick="logOut"
-        android:text="@string/logOut" />
+        android:text="@string/logOut"
+        android:textColor="#FFFFFF" />
 
 
 </RelativeLayout>
