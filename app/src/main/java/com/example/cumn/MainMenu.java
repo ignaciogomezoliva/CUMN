@@ -25,6 +25,7 @@ public class MainMenu extends AppCompatActivity {
     public void setPrevNormal(View view){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Prev", "Normal").apply();
+        editor.putInt("Cat", 20).apply();
         System.out.println("Previo: " + preferences.getString("Prev", ""));
         Intent intent = new Intent(this, Difficulty.class);
         startActivity(intent);

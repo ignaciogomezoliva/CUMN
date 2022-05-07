@@ -1,12 +1,12 @@
 package com.example.cumn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Categorias extends AppCompatActivity {
 
@@ -22,6 +22,7 @@ public class Categorias extends AppCompatActivity {
 
     //0: entretenimiento
     //1: ciencia
+    //20: normal
     //21: deportes
     //22: geografía
     //23: historia
