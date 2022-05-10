@@ -10,12 +10,12 @@
         <entry key="app/src/main/res/layout/activity_categorias.xml" value="0.2066869300911854" />
         <entry key="app/src/main/res/layout/activity_estudio.xml" value="0.30963665086887837" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/activity_ranking.xml" value="0.15579710144927536" />
+        <entry key="app/src/main/res/layout/activity_ranking.xml" value="0.75" />
         <entry key="app/src/main/res/layout/activity_ranking_cat.xml" value="0.15579710144927536" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.16197916666666667" />
-        <entry key="app/src/main/res/layout/layout_listitem.xml" value="0.10208333333333333" />
-        <entry key="app/src/main/res/layout/layout_score.xml" value="0.15579710144927536" />
+        <entry key="app/src/main/res/layout/layout_listitem.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/layout_score.xml" value="0.5" />
       </map>
     </option>
   </component>

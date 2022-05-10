@@ -14,19 +14,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80a1baed-1ef7-4b61-b8b2-62d6ee9ae03e" name="Default Changelist" comment="workspace.xml">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Ranking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/RankingCat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking_cat.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_score.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="80a1baed-1ef7-4b61-b8b2-62d6ee9ae03e" name="Default Changelist" comment="Ranking primera versión">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/RankingAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Difficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Difficulty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Ranking.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Ranking.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +50,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -225,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651771490769</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Ranking primera versión">
+      <created>1652198821758</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652198821758</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -276,6 +276,7 @@
     <MESSAGE value="Detalles de front y nueva paleta de colores." />
     <MESSAGE value="Más detalles de front" />
     <MESSAGE value="User database with Firestore added" />
-    <option name="LAST_COMMIT_MESSAGE" value="User database with Firestore added" />
+    <MESSAGE value="Ranking primera versión" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ranking primera versión" />
   </component>
 </project>
