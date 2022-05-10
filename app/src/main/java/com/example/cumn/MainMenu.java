@@ -31,6 +31,14 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setPrevRanking(View view){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("Prev", "Ranking").apply();
+        System.out.println("Previo: " + preferences.getString("Prev", ""));
+        Intent intent = new Intent(this, RankingCat.class);
+        startActivity(intent);
+    }
+
     public void setPrevCat(View view){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Prev", "Categorias").apply();

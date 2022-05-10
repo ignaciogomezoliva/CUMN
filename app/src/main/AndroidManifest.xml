@@ -13,6 +13,12 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RankingCat"
+            android:exported="false" />
+        <activity
+            android:name=".Ranking"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity

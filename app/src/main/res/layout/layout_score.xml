@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/parent_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/botones"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/Ranking"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:layout_margin="6dp"
+                android:background="@color/botones"
+                android:gravity="center"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/Nombre"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:layout_margin="6dp"
+                android:background="@color/botones"
+                android:gravity="center"
+                android:text="nombre"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/Puntuacion"
+                android:layout_width="60dp"
+                android:layout_height="100dp"
+                android:layout_margin="6dp"
+                android:background="@color/botones"
+                android:gravity="center"
+                android:text="-50"
+                android:textColor="#FFFFFF"
+                android:textSize="36sp" />
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

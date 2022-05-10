@@ -1,12 +1,12 @@
 package com.example.cumn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Difficulty extends AppCompatActivity {
     private SharedPreferences preferences;
@@ -54,8 +54,10 @@ public class Difficulty extends AppCompatActivity {
             intent = new Intent(this, Normal.class);
         else if (activity.equals("Categorias"))
             intent = new Intent(this, CategoriasG.class);
-        else
+        else if (activity.equals("Estudio"))
             intent = new Intent(this, Estudio.class);
+        else
+            intent = new Intent(this, Ranking.class);
 
         startActivity(intent);
     }
