@@ -164,7 +164,8 @@
             android:layout_margin="8dp"
             android:backgroundTint="@color/botones"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:onClick="setPrevRanking">
 
             <LinearLayout
                 android:layout_width="wrap_content"

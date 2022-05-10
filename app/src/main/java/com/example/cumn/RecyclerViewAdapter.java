@@ -1,14 +1,12 @@
 package com.example.cumn;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -27,7 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem,parent,false);
-        ViewHolder holder = new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view, true);
         return holder;
     }
 
@@ -42,16 +40,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return preguntas.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView pregunta;
         TextView respuesta;
+        TextView username;
+        TextView score;
+        TextView position;
 
-
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, boolean election) {
             super(itemView);
-            pregunta = itemView.findViewById(R.id.preguntaR);
-            respuesta = itemView.findViewById(R.id.respuestaR);
+            if(election){
+                pregunta = itemView.findViewById(R.id.preguntaR);
+                respuesta = itemView.findViewById(R.id.respuestaR);
+            }
+            else{
+                username = itemView.findViewById(R.id.NombreR);
+                score = itemView.findViewById(R.id.PuntuacionR);
+                position = itemView.findViewById(R.id.RankingR);
+            }
+
             
         }
     }
