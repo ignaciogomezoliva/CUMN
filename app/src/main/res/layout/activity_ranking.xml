@@ -8,8 +8,44 @@
     tools:context=".Ranking">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_ranking"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/CargandoR"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="392dp"
+        android:background="@color/botones"
+        android:gravity="center"
+        android:text="@string/cargando"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.382"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageButton
+        android:id="@+id/homeR"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/acento"
+        android:onClick="toMainMenuR"
+        android:src="@drawable/home"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,11 +14,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80a1baed-1ef7-4b61-b8b2-62d6ee9ae03e" name="Default Changelist" comment="Ranking primera versión">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/RankingAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Usuario.java" afterDir="false" />
+    <list default="true" id="80a1baed-1ef7-4b61-b8b2-62d6ee9ae03e" name="Default Changelist" comment="Ranking segunda versión">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Ranking.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/Ranking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/RankingAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/RankingAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/RecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cumn/RecyclerViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_score.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_score.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652198821758</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ranking segunda versión">
+      <created>1652202673950</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652202673950</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,6 +288,7 @@
     <MESSAGE value="Más detalles de front" />
     <MESSAGE value="User database with Firestore added" />
     <MESSAGE value="Ranking primera versión" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ranking primera versión" />
+    <MESSAGE value="Ranking segunda versión" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ranking segunda versión" />
   </component>
 </project>

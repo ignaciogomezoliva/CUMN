@@ -25,7 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem,parent,false);
-        ViewHolder holder = new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view, true);
         return holder;
     }
 
@@ -44,12 +44,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView pregunta;
         TextView respuesta;
+        TextView username;
+        TextView score;
+        TextView position;
 
-
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, boolean election) {
             super(itemView);
-            pregunta = itemView.findViewById(R.id.preguntaR);
-            respuesta = itemView.findViewById(R.id.respuestaR);
+            if(election){
+                pregunta = itemView.findViewById(R.id.preguntaR);
+                respuesta = itemView.findViewById(R.id.respuestaR);
+            }
+            else{
+                username = itemView.findViewById(R.id.NombreR);
+                score = itemView.findViewById(R.id.PuntuacionR);
+                position = itemView.findViewById(R.id.RankingR);
+            }
+
             
         }
     }
