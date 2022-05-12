@@ -86,7 +86,6 @@ public class Estudio extends AppCompatActivity {
     }
 
     public void cargarPreguntasESP(){
-        System.out.println("Tengo que traducir");
         ServiceAPi.getInstance()
                 .normal(numPreguntas, dif, "multiple")
                 .subscribeOn(Schedulers.io())
@@ -128,6 +127,7 @@ public class Estudio extends AppCompatActivity {
 
             public void onFinish() {
                 ((TextView)findViewById(R.id.Cargando)).setVisibility(View.GONE);
+                findViewById(R.id.home).setVisibility(View.VISIBLE);
                 initRecyclerView();
             }
         }.start();
