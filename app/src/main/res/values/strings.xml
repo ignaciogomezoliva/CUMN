@@ -1,12 +1,56 @@
 <resources>
     <string name="app_name">CUMN</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+
+    <!-- Strings para permitir soporte en múltiples idiomas -->
+    <string name="normal">NORMAL</string>
+    <string name="categories">CATEGORIES</string>
+    <string name="time_trial">TIME TRIAL</string>
+    <string name="ranking">RANKING</string>
+    <string name="easy">EASY</string>
+    <string name="medium">MEDIUM</string>
+    <string name="hard">HARD</string>
+    <string name="entertainment">ENTERTAINMENT</string>
+    <string name="science">SCIENCE</string>
+    <string name="sports">SPORTS</string>
+    <string name="geography">GEOGRAPHY</string>
+    <string name="history">HISTORY</string>
+    <string name="art">ART</string>
+    <string name="pts">SCORE:</string>
+    <string name="start">START</string>
+    <string name="correct_answer">CORRECT ANSWER!</string>
+    <string name="incorrect_answer">INCORRECT ANSWER! IT WAS:</string>
+    <string name="nextq">NEXT QUESTION</string>
+    <string name="goodr">THE CORRECT ANSWER WAS: </string>
+    <string name="tutorial">Here will appear the questions. Press any answer to start.</string>
+    <string name="r1">Answer 1 </string>
+    <string name="r2">Answer 2 </string>
+    <string name="r3">Answer 3 </string>
+    <string name="r4">Answer 4 </string>
+    <string name="cargando">Loading...</string>
+
+
+    <string name="study">STUDY</string>
+    <string name="cargando_resultados">Loading results...</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log in</string>
+    <string name="signUp">Sign up</string>
+    <string name="logOut">Log out</string>
+    <string name="accountAlready">I have an account</string>
+    <string name="username">Username</string>
+    <string name="createAccount">Create an account</string>
+    <string name="error_username">Username is Required.</string>
+    <string name="error_email">Email is Required.</string>
+    <string name="error_password">Password length must be 6 or more.</string>
+    <string name="error_auth">Auth failed, please try again.</string>
+
 </resources>
