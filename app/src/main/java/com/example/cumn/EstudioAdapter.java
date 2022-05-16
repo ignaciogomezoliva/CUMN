@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class EstudioAdapter extends RecyclerView.Adapter<EstudioAdapter.ViewHolder>{
 
     private ArrayList<String> preguntas = new ArrayList<>();
     private ArrayList<String> respuestas = new ArrayList<>();
     
 
-    public RecyclerViewAdapter(ArrayList<String> preguntas, ArrayList<String> respuestas) {
+    public EstudioAdapter(ArrayList<String> preguntas, ArrayList<String> respuestas) {
         this.preguntas = preguntas;
         this.respuestas = respuestas;
     }
@@ -24,7 +24,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_study,parent,false);
         ViewHolder holder = new ViewHolder(view, true);
         return holder;
     }
@@ -59,8 +59,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 score = itemView.findViewById(R.id.PuntuacionR);
                 position = itemView.findViewById(R.id.RankingR);
             }
-
-            
         }
     }
 }

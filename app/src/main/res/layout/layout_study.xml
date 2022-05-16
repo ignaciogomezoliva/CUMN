@@ -31,7 +31,7 @@
         android:layout_margin="6dp"
         android:background="@color/botones"
         android:gravity="center"
-        android:text="@string/tutorial"
+        android:text="@string/StudyWait"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />

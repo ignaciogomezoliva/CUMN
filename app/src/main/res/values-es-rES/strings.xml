@@ -43,5 +43,6 @@
     <string name="error_email">El email es requerido</string>
     <string name="error_password">La contraseña debe ser de 6 o más carateres</string>
     <string name="error_auth">La autenticación ha fallado, vuelva a intentarlo</string>
+    <string name="StudyWait">Aquí aparecerán las preguntas</string>
 
 </resources>

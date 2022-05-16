@@ -32,6 +32,7 @@ public class Ranking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        fStore = FirebaseFirestore.getInstance();
 
         setContentView(R.layout.activity_ranking);
         ArrayList<Usuario> users = new ArrayList<>();
@@ -76,7 +77,7 @@ public class Ranking extends AppCompatActivity {
                 break;
         }
 
-        fStore = FirebaseFirestore.getInstance();
+
 
         fStore.collection("users")
                 .get()

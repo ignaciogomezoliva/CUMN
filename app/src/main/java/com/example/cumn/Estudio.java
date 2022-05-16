@@ -141,7 +141,7 @@ public class Estudio extends AppCompatActivity {
             respuestasR.add(Jsoup.parse(respuestas.get(i).getCorrectAnswer()).text());
         }
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(preguntas, respuestasR);
+        EstudioAdapter adapter = new EstudioAdapter(preguntas, respuestasR);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

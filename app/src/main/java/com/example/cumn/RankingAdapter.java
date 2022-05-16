@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RankingAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class RankingAdapter extends RecyclerView.Adapter<EstudioAdapter.ViewHolder>{
 
     private ArrayList<Usuario> users = new ArrayList<>();
 
@@ -19,14 +19,14 @@ public class RankingAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.Vie
 
     @NonNull
     @Override
-    public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public EstudioAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_score,parent,false);
-        RecyclerViewAdapter.ViewHolder holder = new RecyclerViewAdapter.ViewHolder(view, false);
+        EstudioAdapter.ViewHolder holder = new EstudioAdapter.ViewHolder(view, false);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull EstudioAdapter.ViewHolder holder, int position) {
         holder.username.setText(users.get(position).getUsername());
         holder.score.setText(String.format("%.0f", users.get(position).getScore()));
         position+=1;
